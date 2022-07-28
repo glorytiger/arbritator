@@ -14,7 +14,7 @@ npm i
 
 ```
 cd src
-node app
+node app <number of champions to return>
 ```
 
 [node-url]: <https://nodejs.org/en/>
