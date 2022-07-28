@@ -79,7 +79,8 @@ async function getChampionNames(version) {
 };
 
 async function run() {
-  
+  const num = process.argv.length > 2 ? process.argv[2] : 1;
+
   const summoner = await getSummonerInfo(process.env.SUMMONER_NAME);
 
   const owned = await getOwnedChampionIds(summoner.id);
@@ -89,7 +90,7 @@ async function run() {
   const version = await getLatestVersion();
   const names = await getChampionNames(version);
 
-  for (let i=0; i < 50; i++) {
+  for (let i=0; i < num; i++) {
     const index = Math.floor(Math.random() * playable.length);
     const id = playable[index];
     console.log("id:", id, ", name:", names[id]);
